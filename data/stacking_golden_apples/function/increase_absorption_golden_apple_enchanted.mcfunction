@@ -1,0 +1,11 @@
+# Revoke the advancement triggering this function so the player can trigger it again
+advancement revoke @a only stacking_golden_apples:absorption_boost_golden_apple_enchanted
+
+# Ensure the player triggering this function is listed with -1 on the "datapack_stacking_absorption" scoreboard
+execute unless score @s datapack_stacking_absorption matches -10000..10000 run scoreboard players set @s datapack_stacking_absorption -1
+
+# The score associated with the player on gets increased by 4 (8 hearts)
+scoreboard players add @s datapack_stacking_absorption 4
+
+# Apply the stacked effect
+execute as @s run function stacking_golden_apples:apply_stacked_effect

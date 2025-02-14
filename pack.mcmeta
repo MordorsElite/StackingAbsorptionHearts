@@ -1,0 +1,15 @@
+{
+    "pack": {
+        "pack_format": 48,
+        "description": [
+            {
+				"text": "Increases Absorption Level when eating a Golden Apple",
+				"color": "gold"
+			},
+			{
+				"text": "\nMordorsElite",
+				"color": "dark_purple"
+			}
+        ]
+    }
+}
