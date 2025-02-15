@@ -1,5 +1,3 @@
-say apply
-
 # Clear previous affect to reset duration (not sure if this necessary)
 effect clear @s absorption
 
@@ -108,9 +106,5 @@ execute if score @s datapack_stacking_absorption matches 99 run effect give @s m
 
 # This gets triggered if the MaxLevel as defined in load.mcfunction is exceeded
 # It can either overwrite an effect applied above or apply the stacked effect at max level
-execute if score @s datapack_stacking_absorption > MaxLevel datapack_stacking_absorption run effect clear @s
-execute if score @s datapack_stacking_absorption > MaxLevel datapack_stacking_absorption run effect give @s minecraft:absorption 120 99 true
-
-# Reduce Absorption effect level and scoreboard values gradually by 1 ever 120 seconds
-schedule clear stacking_golden_apples:reduce_effect_level
-execute if score @s datapack_stacking_absorption >= MinLevel datapack_stacking_absorption run execute as @s run schedule function stacking_golden_apples:reduce_effect_level 100 replace
+execute if score @s datapack_stacking_absorption > MaxLevel datapack_stacking_absorption_constants run effect clear @s
+execute if score @s datapack_stacking_absorption > MaxLevel datapack_stacking_absorption_constants run effect give @s minecraft:absorption 120 99 true

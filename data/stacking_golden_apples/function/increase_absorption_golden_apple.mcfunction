@@ -7,5 +7,11 @@ execute unless score @s datapack_stacking_absorption matches -10000..10000 run s
 # The score associated with the player on gets increased by 1 (2 hearts)
 scoreboard players add @s datapack_stacking_absorption 1
 
+# Reset the duration scoreboard score to 120 seconds
+scoreboard players set @s datapack_stacking_absorption_duration 2400
+
 # Apply the stacked effect
 execute as @s run function stacking_golden_apples:apply_stacked_effect
+
+# Start loop for gradually reducing level of stacking effect
+function stacking_golden_apples:decrease_duration_loop
