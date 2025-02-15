@@ -4,6 +4,7 @@
 scoreboard objectives remove datapack_stacking_absorption
 scoreboard objectives add datapack_stacking_absorption dummy "Stacking Absorption"
 execute as @a run scoreboard players set @s datapack_stacking_absorption -1
+scoreboard players set MinLevel datapack_stacking_absorption 0
 
 # \/ \/ \/ \/ \/ \/ \/
 # THIS VALUE DETERMINES THE MAXIMUM LEVEL FOR THE STACK

@@ -1,3 +1,5 @@
+say apply
+
 # Clear previous affect to reset duration (not sure if this necessary)
 effect clear @s absorption
 
@@ -109,6 +111,6 @@ execute if score @s datapack_stacking_absorption matches 99 run effect give @s m
 execute if score @s datapack_stacking_absorption > MaxLevel datapack_stacking_absorption run effect clear @s
 execute if score @s datapack_stacking_absorption > MaxLevel datapack_stacking_absorption run effect give @s minecraft:absorption 120 99 true
 
-# Reset the scoreboard used to keep track of the active stack after the effect wears off
-schedule clear stacking_golden_apples:reset_scoreboard
-schedule function stacking_golden_apples:reset_scoreboard 2400 replace
+# Reduce Absorption effect level and scoreboard values gradually by 1 ever 120 seconds
+schedule clear stacking_golden_apples:reduce_effect_level
+execute if score @s datapack_stacking_absorption >= MinLevel datapack_stacking_absorption run execute as @s run schedule function stacking_golden_apples:reduce_effect_level 100 replace
