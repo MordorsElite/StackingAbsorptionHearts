@@ -36,8 +36,8 @@ scoreboard objectives add datapack_stacking_absorption_health_calc2 dummy "Absor
 # Damage players not yet listed on the health scoreboard by 0.01 to start tracking them automatically
 execute as @a unless score @s datapack_stacking_absorption_health matches -99999..99999 run damage @s 0.01
 
-# Add pre-existing stack back at full duration in singleplayer
-execute as @a run function stacking_golden_apples:calculate_current_absorption_level
+# Add pre-existing stack back at full duration in singleplayer (useful for datapack reloads)
+schedule function stacking_golden_apples:reload_scheduled_reapply 20
 
 # Add pre-existing stack back at full duration for players joining a server
 scoreboard objectives add datapack_stacking_absorption_leave minecraft.custom:minecraft.leave_game
