@@ -105,17 +105,23 @@ execute if score @s datapack_stacking_absorption matches 98 run effect give @s m
 execute if score @s datapack_stacking_absorption matches 99 run effect give @s minecraft:absorption 120 99 true
 
 
-# \/ \/ \/ \/ \/ \/ \/
+
 # This gets triggered if the maximum level (default: 99) is exceeded.
 # It can either overwrite an effect applied above or apply the stacked effect at max level
+# To change the maximum level, please change all FIVE occurences of "99" in the three lines below
+
 execute if score @s datapack_stacking_absorption matches 99.. run effect clear @s
 execute if score @s datapack_stacking_absorption matches 99.. run effect give @s minecraft:absorption 120 99 true
-# /\ /\ /\ /\ /\ /\ /\
+execute if score @s datapack_stacking_absorption matches 99.. run scoreboard players set @s datapack_stacking_absorption 99
 
 # Additional info for Max Level:
-
 # Level "0" is two hearts, "1" is 4 hearts and every addtional level adds another 2 hearts
 # So the default value of 99 grants a maximum of 200 absorption hearts
 
 # If you want to set a max level beyond 99, you'll need to add addtional lines
 # for those levels in the file apply_stacked_effect.mcfunction
+
+# You can allow "overcharging" the maximum level by putting a "#" in front of the last of the three "execute..." lines
+# The effect of this would be that once a player has reached the maximum hearts allowed, 
+# they could add to "the hidden stack". Their max hearts don't change, but the maximum heart count will stay up at the limit
+# until the "hidden stack" decays first. (This is disabled by default)

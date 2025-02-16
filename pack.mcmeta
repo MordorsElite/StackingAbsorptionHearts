@@ -3,7 +3,7 @@
         "pack_format": 48,
         "description": [
             {
-				"text": "Increases Absorption Level when eating a Golden Apple",
+				"text": "Increases Absorption Level when eating a Golden Apple. Effect reduces gradually",
 				"color": "gold"
 			},
 			{
