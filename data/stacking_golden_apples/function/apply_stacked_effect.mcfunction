@@ -104,7 +104,18 @@ execute if score @s datapack_stacking_absorption matches 97 run effect give @s m
 execute if score @s datapack_stacking_absorption matches 98 run effect give @s minecraft:absorption 120 98 true
 execute if score @s datapack_stacking_absorption matches 99 run effect give @s minecraft:absorption 120 99 true
 
-# This gets triggered if the MaxLevel as defined in load.mcfunction is exceeded
+
+# \/ \/ \/ \/ \/ \/ \/
+# This gets triggered if the maximum level (default: 99) is exceeded.
 # It can either overwrite an effect applied above or apply the stacked effect at max level
-execute if score @s datapack_stacking_absorption > MaxLevel datapack_stacking_absorption_constants run effect clear @s
-execute if score @s datapack_stacking_absorption > MaxLevel datapack_stacking_absorption_constants run effect give @s minecraft:absorption 120 99 true
+execute if score @s datapack_stacking_absorption matches 99.. run effect clear @s
+execute if score @s datapack_stacking_absorption matches 99.. run effect give @s minecraft:absorption 120 99 true
+# /\ /\ /\ /\ /\ /\ /\
+
+# Additional info for Max Level:
+
+# Level "0" is two hearts, "1" is 4 hearts and every addtional level adds another 2 hearts
+# So the default value of 99 grants a maximum of 200 absorption hearts
+
+# If you want to set a max level beyond 99, you'll need to add addtional lines
+# for those levels in the file apply_stacked_effect.mcfunction

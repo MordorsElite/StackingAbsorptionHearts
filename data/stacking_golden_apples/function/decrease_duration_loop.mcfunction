@@ -1,8 +1,5 @@
 # Triggered once duration is up. Decreases level by one, then resets the duration score counter to 120 seconds
-execute as @a if score @s datapack_stacking_absorption_duration matches 0 if score @s datapack_stacking_absorption matches 0.. run execute as @s run function stacking_golden_apples:loop_zero_duration_with_remaining_stack
-
-# Full reset of the effect after the duration of the lowest level is up
-execute as @a if score @s datapack_stacking_absorption_duration matches 0 if score @s datapack_stacking_absorption matches ..0 run execute as @s run function stacking_golden_apples:loop_zero_duration_without_remaining_stack
+execute as @a if score @s datapack_stacking_absorption_duration matches 0 if score @s datapack_stacking_absorption matches 0.. run execute as @s run function stacking_golden_apples:decrease_stacked_effect
 
 # Decrease duration score by one tick if the duration is above -1
 execute as @a if score @s datapack_stacking_absorption_duration matches 0.. run scoreboard players remove @s datapack_stacking_absorption_duration 1
