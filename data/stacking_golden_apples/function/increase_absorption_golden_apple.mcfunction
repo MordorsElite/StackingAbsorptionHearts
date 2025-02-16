@@ -8,7 +8,7 @@ execute unless score @s datapack_stacking_absorption matches -10000..10000 run s
 scoreboard players add @s datapack_stacking_absorption 1
 
 # Reset the duration scoreboard score to 120 seconds
-scoreboard players set @s datapack_stacking_absorption_duration 2400
+scoreboard players set @s datapack_stacking_absorption_duration 2399
 
 # Apply the stacked effect
 execute as @s run function stacking_golden_apples:apply_stacked_effect
