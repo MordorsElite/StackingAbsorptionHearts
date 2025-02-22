@@ -110,7 +110,7 @@ execute if score @s datapack_stacking_absorption matches 99 run effect give @s m
 # It can either overwrite an effect applied above or apply the stacked effect at max level
 # To change the maximum level, please change all FIVE occurences of "99" in the three lines below
 
-execute if score @s datapack_stacking_absorption matches 99.. run effect clear @s
+execute if score @s datapack_stacking_absorption matches 99.. run effect clear @s minecraft:absorption
 execute if score @s datapack_stacking_absorption matches 99.. run effect give @s minecraft:absorption 120 99 true
 execute if score @s datapack_stacking_absorption matches 99.. run scoreboard players set @s datapack_stacking_absorption 99
 
